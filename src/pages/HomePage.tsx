@@ -7,6 +7,8 @@ import Resume from '../component/Resume';
 import HouseWoker from '../component/HouseWoker';
 import Service from '../component/Service';
 import { Image } from 'antd';
+import Blog from '../component/Blog';
+import Contact from '../component/Contact';
 
 const HomePage = (props: any) => {
 
@@ -82,6 +84,8 @@ const HomePage = (props: any) => {
                 <div className="row tm-mb-90 tm-gallery">
                 </div>
             </div>
+            <Blog />
+            <Contact />
 
         </div>
     )

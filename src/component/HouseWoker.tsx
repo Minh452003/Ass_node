@@ -14,7 +14,7 @@ const HouseWoker = (props: Props) => {
                                     <div className="m-auto"><i className="ti-alarm-clock icon-xl"></i></div>
                                 </div>
                                 <div className="col-7 text-left py-3">
-                                    <h1 className="text-danger font-weight-bold font40"></h1>
+                                    <h1 className="text-danger font-weight-bold font40">100</h1>
                                     <p className="text-light mb-1">Hours Worked</p>
                                 </div>
                             </div>
@@ -25,7 +25,7 @@ const HouseWoker = (props: Props) => {
                                     <div className="m-auto"><i className="ti-layers-alt icon-xl"></i></div>
                                 </div>
                                 <div className="col-7 text-left py-3">
-                                    <h1 className="text-danger font-weight-bold font40"></h1>
+                                    <h1 className="text-danger font-weight-bold font40">4</h1>
                                     <p className="text-light mb-1">Project Finished</p>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@ const HouseWoker = (props: Props) => {
                                     <div className="m-auto"><i className="ti-face-smile icon-xl"></i></div>
                                 </div>
                                 <div className="col-7 text-left py-3">
-                                    <h1 className="text-danger font-weight-bold font40"></h1>
+                                    <h1 className="text-danger font-weight-bold font40">40</h1>
                                     <p className="text-light mb-1">Happy Clients</p>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@ const HouseWoker = (props: Props) => {
                                     <div className="m-auto"><i className="ti-heart-broken icon-xl"></i></div>
                                 </div>
                                 <div className="col-7 text-left py-3">
-                                    <h1 className="text-danger font-weight-bold font40"></h1>
+                                    <h1 className="text-danger font-weight-bold font40">20</h1>
                                     <p className="text-light mb-1">Coffee Drinked</p>
                                 </div>
                             </div>
