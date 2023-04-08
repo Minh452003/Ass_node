@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import React, { useState } from 'react'; import { FormOutlined, LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import {
     HddOutlined,
     FileOutlined,
@@ -36,6 +36,10 @@ const items: MenuItem[] = [
     getItem('Products', 'sub2', <ProjectOutlined />, undefined, [
         getItem('List Products', '4', undefined, '/admin/products'),
         getItem('Create Product', '5', undefined, '/admin/products/add'),
+    ]),
+    getItem('Blogs', 'sub3', <FormOutlined />, undefined, [
+        getItem('List Blog', '6', undefined, '/admin/blogs'),
+        getItem('Create Blog', '7', undefined, '/admin/blogs/add'),
     ]),
     getItem('Files', '8', <FileOutlined />),
 ];

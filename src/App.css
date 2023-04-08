@@ -9684,13 +9684,18 @@ button.bg-dark:focus {
   }
 }
 
+.form11 {
+  margin-top: 15%;
+  margin-right: 5%;
+}
+
 .float-left {
   float: left !important;
 }
 
-.float-right {
+/* .float-right {
   float: right !important;
-}
+} */
 
 .float-none {
   float: none !important;
@@ -12748,6 +12753,7 @@ p {
   margin-bottom: 30px;
   overflow: hidden;
   margin: 0 15px 30px;
+  height: 300px !important;
 }
 
 .blog-card .img-holder {

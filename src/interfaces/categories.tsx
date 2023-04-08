@@ -1,3 +1,4 @@
+import { IProduct } from "./products";
 
 export interface ICategory {
     _id?: number | string,
@@ -5,7 +6,7 @@ export interface ICategory {
     description: string
 }
 export interface IPropsCate {
-    products: any;
+    products: IProduct;
     onAdd: (product: ICategory) => void
 }
 export interface IUpdate {

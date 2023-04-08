@@ -23,6 +23,11 @@ import SignUp from './pages/sign/signup';
 import "./App.css"
 import CategoryDetail from './pages/CategoryDetail';
 import ProductsPage from './pages/Products';
+import BlogManager from './pages/admin/Blog/BlogManager';
+import { IBlog } from './interfaces/blogs';
+import { addBlog, getAllBlog, removeBlog, updateBlog } from './api/blog';
+import AddBlog from './pages/admin/Blog/AddBlog';
+import UpdateBlog from './pages/admin/Blog/UpdateBlog';
 function App() {
   const [products, setProducts] = useState<IProduct[]>([]);
   useEffect(() => {
@@ -72,7 +77,31 @@ function App() {
   const onHandleUpdateCate = (category: ICategory) => {
     updateCategory(category).then(() => setCategories(categories.map(item => item._id == category._id ? category : item))).then(() => alert("Cập nhật danh mục thành công"));
   }
+  // Blog
+  const [blogs, setBlogs] = useState<IBlog[]>([]);
+  useEffect(() => {
+    (async () => {
+      const { data } = await getAllBlog();
+      setBlogs(data);
+    })()
+  }, [])
+  const OnhandleRemoveBlog = (id: string | number) => {
+    if (window.confirm("Bạn chắc chắn chứ?") == true) {
+      removeBlog(id).then(() => {
+        const newBlog = blogs.filter((blog) => blog._id != id);
+        setBlogs(newBlog);
+      })
+    }
+  }
+  const onHandleAddBlog = async (blog: IBlog) => {
 
+    const { data } = await addBlog(blog);
+    alert("Thêm bài viết thành công");
+    setCategories([...blogs, data]);
+  }
+  const onHandleUpdateBlog = (blog: IBlog) => {
+    updateBlog(blog).then(() => setBlogs(blogs.map(item => item._id == blog._id ? blog : item))).then(() => alert("Cập nhật bài viết thành công"));
+  }
   return (
     <div className="App" style={{ width: '100%' }}>
       <BrowserRouter>
@@ -97,6 +126,11 @@ function App() {
               <Route index element={<CategoryPage categories={categories} onRemoveCate={OnhandleRemoveCate} />} />
               <Route path='add' element={<AddCategory categories={categories} onAddCate={onHandleAddCate} />} />
               <Route path=':id/update' element={<UpdateCategory categories={categories} onUpdateCate={onHandleUpdateCate} />} />
+            </Route>
+            <Route path='blogs'>
+              <Route index element={<BlogManager blogs={blogs} onRemoveBlog={OnhandleRemoveBlog} />} />
+              <Route path='add' element={<AddBlog blogs={blogs} onAddBlog={onHandleAddBlog} />} />
+              <Route path=':id/update' element={<UpdateBlog blogs={blogs} onUpdateBlog={onHandleUpdateBlog} />} />
             </Route>
           </Route>
         </Routes>

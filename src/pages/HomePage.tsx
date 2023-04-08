@@ -9,6 +9,8 @@ import Service from '../component/Service';
 import { Image } from 'antd';
 import Blog from '../component/Blog';
 import Contact from '../component/Contact';
+import { IProduct } from '../interfaces/products';
+import { ICategory } from '../interfaces/categories';
 
 const HomePage = (props: any) => {
 
@@ -42,7 +44,7 @@ const HomePage = (props: any) => {
                                     <div className="card-header bg-secondary text-white text-uppercase"><i className="fa fa-list"></i> Danh mục
                                     </div>
                                     <ul className="list-group category_block">
-                                        {props.categories.map((category: any) => {
+                                        {props.categories.map((category: ICategory) => {
                                             return <li className="list-group-item" key={category._id}><Link style={{ textDecoration: 'none' }} to={`/categories/${category._id}`}>{category.name}</Link></li>
                                         })}
 
@@ -54,7 +56,7 @@ const HomePage = (props: any) => {
                                     <PlusSquareOutlined /> <p style={{ marginTop: 1 }}>Sản phẩm mới nhất</p>
                                 </div>
                                 <div className="row">
-                                    {props.products.map((product: any) => {
+                                    {props.products.map((product: IProduct) => {
                                         return <div className="col-12 col-md-6 col-lg-4 mt-2" key={product._id}>
                                             <div className="card">
                                                 <Image

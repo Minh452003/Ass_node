@@ -24,6 +24,7 @@ const Signin = (props: Props) => {
                 /></Col>
                 <Col span={12}>
                     <Form
+                        className='form11'
                         layout="vertical"
                         name="basic"
                         labelCol={{ span: 8 }}
@@ -47,7 +48,7 @@ const Signin = (props: Props) => {
                             <Input.Password />
                         </Form.Item>
                         <div className="form-group">
-                            <a href="index.php?act=quenmk" className="float-right">Quên mật khẩu?</a>
+                            <a href="" className="float-right">Quên mật khẩu?</a>
                         </div>
                         <Form.Item >
                             <Button style={{ width: "100%", height: 35 }} type="primary" htmlType="submit">

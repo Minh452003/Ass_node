@@ -36,6 +36,7 @@ const AddCategory = (props: any) => {
                         <Form.Item
                             label="Category Name"
                             name="name"
+                            hasFeedback
                             rules={[{ required: true, message: 'Tên danh mục không được để trống!' }]}
                         >
                             <Input />

@@ -75,11 +75,11 @@ const RootLayout = (props: Props) => {
                                 <a href="#about" className="nav-link">About</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#projects" className="nav-link">Projects</a>
+                                <a href="#resume" className="nav-link">Resume</a>
                             </li>
                         </ul>
                         <ul className="navbar-nav brand">
-                            <img src="https://res.cloudinary.com/dkvghcobl/image/upload/v1676792388/ECMA/cgevzpzpo1esjgieg24i.jpg" alt="" className="brand-img" />
+                            <Link to={'/signin'}><img src="https://res.cloudinary.com/dkvghcobl/image/upload/v1676792388/ECMA/cgevzpzpo1esjgieg24i.jpg" alt="" className="brand-img" /></Link>
                             <li className="brand-txt">
                                 <h5 className="brand-title">John Doe</h5>
                                 <div className="brand-subtitle">Web Designer | Developer</div>
@@ -87,13 +87,13 @@ const RootLayout = (props: Props) => {
                         </ul>
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <a href="#blog" className="nav-link">Blog</a>
+                                <a href="#projects" className="nav-link">Project</a>
                             </li>
                             <li className="nav-item last-item">
-                                <a href="#contact" className="nav-link">Contact</a>
+                                <a href="#blog" className="nav-link">Blog</a>
                             </li>
                             <li className="nav-item">
-                                <a data-id="navigo" href="#/Sign/login" className="nav-link">Login</a>
+                                <a href="#contact" className="nav-link">Contact</a>
                             </li>
                         </ul>
                     </div>
