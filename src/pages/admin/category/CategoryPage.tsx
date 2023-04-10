@@ -3,11 +3,12 @@ import { Space, Table, Button } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { Link } from 'react-router-dom';
 import { ICategory } from '../../../interfaces/categories';
+import PrivateRoute from '../../../PrivateRouter';
 interface ICate {
     categories: ICategory[]
 }
 const CategoryPage = (props: any) => {
-
+    PrivateRoute();
     const data = props.categories.map((category: ICategory) => {
         return {
             key: category._id,

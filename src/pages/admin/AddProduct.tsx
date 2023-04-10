@@ -6,11 +6,12 @@ import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
+import PrivateRoute from '../../PrivateRouter';
 
 const AddProduct = (props: any) => {
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
-
+    PrivateRoute();
     const CLOUD_NAME = "dkvghcobl";
     const PRESET_NAME = "upload-portfolio";
     const FOLDER_NAME = "ECMA";
@@ -52,12 +53,12 @@ const AddProduct = (props: any) => {
                     <form onSubmit={handleSubmit(onHandleSubmit)}>
                         <div className="mb-3">
                             <label className="form-label">Tên dự án</label>
-                            <input type="text" {...register('duan', { required: true, minLength: 6 })} className="form-control" />
+                            <input type="text" {...register('duan', { required: true })} className="form-control" />
                             {errors.duan && <span style={{ color: 'red' }}>Bắt buộc phải nhập trường này</span>}
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Tác giả</label>
-                            <input type="text" {...register('name', { required: true, minLength: 6 })} className="form-control" />
+                            <input type="text" {...register('name', { required: true })} className="form-control" />
                             {errors.name && <span style={{ color: 'red' }}>Bắt buộc phải nhập trường này</span>}
                         </div>
                         <div className="mb-3">

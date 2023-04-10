@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Col, Form, Input, Row, Select, Image } from 'antd';
 import { IBlog } from '../../../interfaces/blogs';
+import PrivateRoute from '../../../PrivateRouter';
 interface IProps {
     blogs: IBlog[];
     onAddBlog: (blog: IBlog) => void
 }
 const AddBlog = (props: IProps) => {
+    PrivateRoute();
     const navigate = useNavigate();
     const onFinish = (values: any) => {
         props.onAddBlog(values);

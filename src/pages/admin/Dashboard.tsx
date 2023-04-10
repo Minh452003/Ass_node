@@ -1,16 +1,11 @@
 import React, { useEffect } from 'react';
 import { Col, Divider, Row } from 'antd';
 import { useNavigate } from "react-router-dom";
+import PrivateRoute from '../../PrivateRouter';
 
 const style: React.CSSProperties = { background: '#0092ff', padding: '8px 0' };
 const Dashboard = () => {
-    const navigate = useNavigate();
-    useEffect(() => {
-        const { user: { role } } = JSON.parse(localStorage.getItem('user')!)
-        if (role != "admin") {
-            navigate('/');
-        }
-    })
+    PrivateRoute();
     return (
         <div>
             <Divider orientation="left">Horizontal</Divider>

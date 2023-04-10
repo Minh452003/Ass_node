@@ -3,6 +3,7 @@ import { IBlog } from '../../../interfaces/blogs';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Space, Table } from 'antd';
 import { Link } from 'react-router-dom';
+import PrivateRoute from '../../../PrivateRouter';
 
 interface IProps {
     blogs: IBlog[]
@@ -16,6 +17,7 @@ interface DataType {
     tags: string[];
 }
 const BlogManager = (props: any) => {
+    PrivateRoute();
     const data = props.blogs.map((blog: IBlog) => {
         return {
             key: blog._id,

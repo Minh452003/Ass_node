@@ -3,6 +3,7 @@ import { ColumnsType } from 'antd/es/table';
 import { Button, Space, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import { IService } from '../../../interfaces/services';
+import PrivateRoute from '../../../PrivateRouter';
 interface IProps {
     services: IService[]
     onRemoveSe: (id: string | number) => void
@@ -15,6 +16,7 @@ interface DataType {
     tags: string[];
 }
 const ServiceManager = (props: any) => {
+    PrivateRoute();
     const data = props.services.map((resume: IService) => {
         return {
             key: resume._id,

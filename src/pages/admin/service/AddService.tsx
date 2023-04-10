@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Col, Form, Input, Row, Select, Image } from 'antd';
 import { IService } from '../../../interfaces/services';
+import PrivateRoute from '../../../PrivateRouter';
 interface IProps {
     services: IService[];
     onAddSe: (service: IService) => void
 }
 const AddService = (props: IProps) => {
     const navigate = useNavigate();
+    PrivateRoute();
     const onFinish = (values: any) => {
         props.onAddSe(values);
         navigate("/admin/services");

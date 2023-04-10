@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Col, Form, Input, Row, Select, Image } from 'antd';
 import { ICategory } from '../../../interfaces/categories';
+import PrivateRoute from '../../../PrivateRouter';
 
 type Props = {}
 
 const AddCategory = (props: any) => {
+    PrivateRoute();
     const navigate = useNavigate();
     const onFinish = (values: any) => {
         props.onAddCate(values);

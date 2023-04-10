@@ -3,6 +3,7 @@ import { ColumnsType } from 'antd/es/table';
 import { Button, Space, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import { IResume } from '../../../interfaces/resumes';
+import PrivateRoute from '../../../PrivateRouter';
 interface IProps {
     resumes: IResume[]
     onRemoveRe: (id: string | number) => void
@@ -15,6 +16,8 @@ interface DataType {
     tags: string[];
 }
 const ResumeManager = (props: any) => {
+    PrivateRoute();
+
     const data = props.resumes.map((resume: IResume) => {
         return {
             key: resume._id,

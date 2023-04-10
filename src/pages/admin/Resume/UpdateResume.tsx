@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Col, Form, Input, Row, Image } from 'antd';
 import { IResume } from '../../../interfaces/resumes';
+import PrivateRoute from '../../../PrivateRouter';
 interface IUpdate {
     resumes: IResume[];
     onUpdateRe: (resume: IResume) => void
@@ -9,6 +10,7 @@ interface IUpdate {
 const UpdateResume = (props: IUpdate) => {
     const { id } = useParams();
     const navigate = useNavigate();
+    PrivateRoute();
     const [resume, setResume] = useState<IResume>();
 
     useEffect(() => {

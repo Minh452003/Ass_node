@@ -4,10 +4,12 @@ import { Button, Form, Input, Select, Image } from 'antd';
 import { IProduct, IUpdate } from '../../interfaces/products';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import PrivateRoute from '../../PrivateRouter';
 
 const UpdateProduct = (props: any) => {
     const { id } = useParams();
     const navigate = useNavigate();
+    PrivateRoute();
     const [product, setProduct] = useState<IProduct>();
 
     useEffect(() => {

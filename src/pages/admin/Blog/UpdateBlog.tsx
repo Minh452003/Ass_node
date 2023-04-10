@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Col, Form, Input, Row, Image } from 'antd';
 import { IBlog } from '../../../interfaces/blogs';
+import PrivateRoute from '../../../PrivateRouter';
 interface IUpdate {
     blogs: IBlog[];
     onUpdateBlog: (blog: IBlog) => void
 }
 const UpdateBlog = (props: IUpdate) => {
+    PrivateRoute();
     const { id } = useParams();
     const navigate = useNavigate();
     const [blog, setBlog] = useState<IBlog>();

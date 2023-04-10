@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; import { AppstoreOutlined, CloudServerOutlined, FormOutlined, UserOutlined } from '@ant-design/icons';
+import React, { useState, useEffect, useRef } from 'react'; import { AppstoreOutlined, CloudServerOutlined, FormOutlined, UserOutlined } from '@ant-design/icons';
 import {
     HddOutlined,
     HomeOutlined,
@@ -39,12 +39,26 @@ const AdminLayout = (props: Props) => {
         token: { colorBgContainer },
     } = theme.useToken();
     const navigate = useNavigate();
-    const { user: { name } } = JSON.parse(localStorage.getItem('user')!)
-    const handleLogout = () => {
-        localStorage.removeItem("user");
-        navigate('/');
-    }
+    const [name, setName] = useState('');
 
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser !== null) {
+            const { user: { name } } = JSON.parse(storedUser);
+            setName(name);
+        } else {
+            console.log("Lỗi");
+
+        }
+    }, []);
+
+    const nameRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (nameRef.current !== null) {
+            nameRef.current.innerText = name;
+        }
+    }, [name]);
     const items: MenuItem[] = [
         getItem('Dashboard', '1', <HomeOutlined />, '/admin'),
         getItem('Categories ', 'sub1', <HddOutlined />, undefined, [
@@ -83,17 +97,17 @@ const AdminLayout = (props: Props) => {
             <Layout className="site-layout">
                 <Header style={{ padding: 0, background: colorBgContainer }}>
                     <div>
-                        <Avatar style={{ marginLeft: "75%" }}
-                            size={{ xs: 12, sm: 15, md: 13, lg: 20, xl: 40, xxl: 50 }}
-                            icon={<UserOutlined />}
-                        ></Avatar><b style={{ marginLeft: '10px' }}>{name}</b>
-                        <Button onClick={() => {
-                            localStorage.removeItem("user")
-                            navigate('/')
-                        }} style={{ marginLeft: '10px' }}
-                            danger
-                            icon={< LogoutOutlined />}
-                        />
+                        <div style={{ float: 'right' }}>
+                            <span ref={nameRef} className="text-primary" style={{ display: 'inline-block', marginRight: '10px' }}></span>
+                            <Link to={'/'} className="text-info" style={{ marginRight: '10px' }}>Về trang chủ</Link>
+                            <Button onClick={() => {
+                                localStorage.removeItem("user")
+                                navigate('/')
+                            }} style={{ marginRight: '10px' }}
+                                danger
+
+                            >Thoát</Button>
+                        </div>
 
                     </div>
 

@@ -4,8 +4,10 @@ import type { ColumnsType } from 'antd/es/table';
 import { Link } from 'react-router-dom';
 import { ICategory } from '../../interfaces/categories';
 import { getAllCategory } from '../../api/category';
+import PrivateRoute from '../../PrivateRouter';
 const ProductManagementPage = (props: any) => {
     const [categories, setCategories] = useState<ICategory[]>([]);
+    PrivateRoute();
     useEffect(() => {
         (async () => {
             const { data } = await getAllCategory();

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Col, Form, Input, Row, Image } from 'antd';
 import { IService } from '../../../interfaces/services';
+import PrivateRoute from '../../../PrivateRouter';
 interface IUpdate {
     services: IService[];
     onUpdateSe: (service: IService) => void
 }
 const UpdateService = (props: IUpdate) => {
+    PrivateRoute();
     const { id } = useParams();
     const navigate = useNavigate();
     const [service, setService] = useState<IService>();
