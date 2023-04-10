@@ -28,6 +28,16 @@ import { IBlog } from './interfaces/blogs';
 import { addBlog, getAllBlog, removeBlog, updateBlog } from './api/blog';
 import AddBlog from './pages/admin/Blog/AddBlog';
 import UpdateBlog from './pages/admin/Blog/UpdateBlog';
+import ResumeManager from './pages/admin/Resume/ResumeManager';
+import { IResume } from './interfaces/resumes';
+import { addRe, getAllRe, removeRe, updateRe } from './api/resume';
+import AddResume from './pages/admin/Resume/AddResume';
+import UpdateResume from './pages/admin/Resume/UpdateResume';
+import { IService } from './interfaces/services';
+import { addSe, getAllSe, removeSe, updateSe } from './api/service';
+import ServiceManager from './pages/admin/service/ServiceManager';
+import AddService from './pages/admin/service/AddService';
+import UpdateService from './pages/admin/service/UpdateService';
 function App() {
   const [products, setProducts] = useState<IProduct[]>([]);
   useEffect(() => {
@@ -97,10 +107,60 @@ function App() {
 
     const { data } = await addBlog(blog);
     alert("Thêm bài viết thành công");
-    setCategories([...blogs, data]);
+    setBlogs([...blogs, data]);
   }
   const onHandleUpdateBlog = (blog: IBlog) => {
     updateBlog(blog).then(() => setBlogs(blogs.map(item => item._id == blog._id ? blog : item))).then(() => alert("Cập nhật bài viết thành công"));
+  }
+  // Resume-------------------------------------------------------
+  const [resumes, setResumes] = useState<IResume[]>([]);
+  useEffect(() => {
+    (async () => {
+      const { data } = await getAllRe();
+      setResumes(data);
+    })()
+  }, [])
+  const OnhandleRemoveRe = (id: string | number) => {
+    if (window.confirm("Bạn chắc chắn chứ?") == true) {
+      removeRe(id).then(() => {
+        const newRe = resumes.filter((resume) => resume._id != id);
+        setResumes(newRe);
+      })
+    }
+  }
+  const onHandleAddRe = async (resume: IResume) => {
+
+    const { data } = await addRe(resume);
+    alert("Thêm bài viết thành công");
+    setResumes([...resumes, data]);
+  }
+  const onHandleUpdateRe = (resume: IResume) => {
+    updateRe(resume).then(() => setResumes(resumes.map(item => item._id == resume._id ? resume : item))).then(() => alert("Cập nhật bài viết thành công"));
+  }
+  // Service-----------------------------------------------------------------------
+  const [services, setServices] = useState<IService[]>([]);
+  useEffect(() => {
+    (async () => {
+      const { data } = await getAllSe();
+      setServices(data);
+    })()
+  }, [])
+  const OnhandleRemoveSe = (id: string | number) => {
+    if (window.confirm("Bạn chắc chắn chứ?") == true) {
+      removeSe(id).then(() => {
+        const newSe = services.filter((service) => service._id != id);
+        setServices(newSe);
+      })
+    }
+  }
+  const onHandleAddSe = async (service: IService) => {
+
+    const { data } = await addSe(service);
+    alert("Thêm bài viết thành công");
+    setServices([...services, data]);
+  }
+  const onHandleUpdateSe = (service: IService) => {
+    updateSe(service).then(() => setServices(services.map(item => item._id == service._id ? service : item))).then(() => alert("Cập nhật bài viết thành công"));
   }
   return (
     <div className="App" style={{ width: '100%' }}>
@@ -118,7 +178,7 @@ function App() {
           <Route path="admin" element={<AdminLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="products">
-              <Route index element={<ProductManagementPage products={products} onRemove={OnhandleRemove} />} />
+              <Route index element={<ProductManagementPage categories={categories} products={products} onRemove={OnhandleRemove} />} />
               <Route path='add' element={<AddProduct categories={categories} products={products} onAdd={onHandleAdd} />} />
               <Route path=':id/update' element={<UpdateProduct categories={categories} products={products} onUpdate={onHandleUpdate} />} />
             </Route>
@@ -131,6 +191,16 @@ function App() {
               <Route index element={<BlogManager blogs={blogs} onRemoveBlog={OnhandleRemoveBlog} />} />
               <Route path='add' element={<AddBlog blogs={blogs} onAddBlog={onHandleAddBlog} />} />
               <Route path=':id/update' element={<UpdateBlog blogs={blogs} onUpdateBlog={onHandleUpdateBlog} />} />
+            </Route>
+            <Route path='resumes'>
+              <Route index element={<ResumeManager resumes={resumes} onRemoveRe={OnhandleRemoveRe} />} />
+              <Route path='add' element={<AddResume resumes={resumes} onAddRe={onHandleAddRe} />} />
+              <Route path=':id/update' element={<UpdateResume resumes={resumes} onUpdateRe={onHandleUpdateRe} />} />
+            </Route>
+            <Route path='services'>
+              <Route index element={<ServiceManager services={services} onRemoveSe={OnhandleRemoveSe} />} />
+              <Route path='add' element={<AddService services={services} onAddSe={onHandleAddSe} />} />
+              <Route path=':id/update' element={<UpdateService services={services} onUpdateSe={onHandleUpdateSe} />} />
             </Route>
           </Route>
         </Routes>

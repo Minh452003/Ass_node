@@ -20,7 +20,7 @@ const Blog = (props: any) => {
                 <h2 className="mb-5">LATEST <span className="text-danger">NEWS</span></h2>
                 <div className="row">
                     {blogs.map((blog: IBlog) => {
-                        return <div className="blog-card">
+                        return <div className="blog-card" key={blog._id}>
                             <div className="img-holder">
                                 <img src={blog.image} alt="" className="img2" />
                             </div>

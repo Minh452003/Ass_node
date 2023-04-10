@@ -1,22 +1,21 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Col, Form, Input, Row, Select, Image } from 'antd';
-import { IBlog } from '../../../interfaces/blogs';
+import { IService } from '../../../interfaces/services';
 interface IProps {
-    blogs: IBlog[];
-    onAddBlog: (blog: IBlog) => void
+    services: IService[];
+    onAddSe: (service: IService) => void
 }
-const AddBlog = (props: IProps) => {
+const AddService = (props: IProps) => {
     const navigate = useNavigate();
     const onFinish = (values: any) => {
-        props.onAddBlog(values);
-        navigate("/admin/blogs");
+        props.onAddSe(values);
+        navigate("/admin/services");
     }
 
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
     };
-
     return (
         <div>
             <Row>
@@ -35,7 +34,7 @@ const AddBlog = (props: IProps) => {
                         autoComplete="off"
                     >
                         <Form.Item
-                            label="Blog Title"
+                            label="Service Title"
                             name="title"
                             hasFeedback
                             rules={[{ required: true, message: 'Tiêu đề không được để trống!' }]}
@@ -43,23 +42,7 @@ const AddBlog = (props: IProps) => {
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            label="Blog User"
-                            name="author"
-                            hasFeedback
-                            rules={[{ required: true, message: 'Tác giả không được để trống!' }]}
-                        >
-                            <Input />
-                        </Form.Item>
-                        <Form.Item
-                            label="Blog Image"
-                            name="image"
-                            hasFeedback
-                            rules={[{ required: true, message: 'Ảnh không được để trống!' }]}
-                        >
-                            <Input />
-                        </Form.Item>
-                        <Form.Item
-                            label="Blog Description"
+                            label="Service Description"
                             name="description"
                             hasFeedback
                             rules={[{ required: true, message: 'Mô tả không được để trống!' }]}
@@ -68,7 +51,7 @@ const AddBlog = (props: IProps) => {
                         </Form.Item>
                         <Form.Item >
                             <Button style={{ width: "100%", height: 35 }} type="primary" htmlType="submit">
-                                ADD BLOG
+                                ADD SERVICE
                             </Button>
                         </Form.Item>
                     </Form>
@@ -79,4 +62,4 @@ const AddBlog = (props: IProps) => {
     )
 }
 
-export default AddBlog
+export default AddService

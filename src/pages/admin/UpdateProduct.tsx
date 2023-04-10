@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, Form, Input, Select } from 'antd';
+import { Button, Form, Input, Select, Image } from 'antd';
 import { IProduct, IUpdate } from '../../interfaces/products';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 const UpdateProduct = (props: any) => {
     const { id } = useParams();
@@ -12,6 +14,7 @@ const UpdateProduct = (props: any) => {
         const currentProduct = props.products.find((product: IProduct) => product._id == id);
         setProduct(currentProduct);
     }, [props]);
+
     useEffect(() => {
         setFields()
     }, [product])
@@ -42,6 +45,7 @@ const UpdateProduct = (props: any) => {
 
     return (
         <div>
+
             <Form
                 form={form}
                 layout="vertical"
@@ -101,7 +105,12 @@ const UpdateProduct = (props: any) => {
                     rules={[{ required: true, message: 'Link ảnh không được để trống' }]}
                 >
                     <Input />
+
                 </Form.Item>
+                <Image
+                    width={200}
+                    src={product?.image}
+                />
                 <Form.Item
                     label="Desc"
                     name="description"

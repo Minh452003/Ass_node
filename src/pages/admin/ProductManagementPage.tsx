@@ -1,10 +1,19 @@
-import React from 'react'
-import { Space, Table, Button, Pagination } from 'antd';
+import React, { useEffect, useState } from 'react'
+import { Space, Table, Button, Pagination, Select } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { Link } from 'react-router-dom';
+import { ICategory } from '../../interfaces/categories';
+import { getAllCategory } from '../../api/category';
 const ProductManagementPage = (props: any) => {
-
+    const [categories, setCategories] = useState<ICategory[]>([]);
+    useEffect(() => {
+        (async () => {
+            const { data } = await getAllCategory();
+            setCategories(data);
+        })()
+    }, [])
     const data = props.products.map((product: any) => {
+        const category = categories.find((category: ICategory) => category._id === product.categoryId);
         return {
             key: product._id,
             duan: product.duan,
@@ -13,8 +22,7 @@ const ProductManagementPage = (props: any) => {
             linkprv: <Link to={product.linkprv}>Xem Ngay</Link>,
             image: <img width={50} src={product.image} alt="" />,
             description: product.description,
-            createdAt: product.createdAt,
-            updatedAt: product.updatedAt
+            categoryId: category ? category.name : ''
         }
     });
     const removeProduct = (id: string | number) => {
@@ -61,14 +69,9 @@ const ProductManagementPage = (props: any) => {
             key: 'description',
         },
         {
-            title: 'Product createdAt',
-            dataIndex: 'createdAt',
-            key: 'createdAt',
-        },
-        {
-            title: 'Product updatedAt',
-            dataIndex: 'updatedAt',
-            key: 'updatedAt',
+            title: 'Category',
+            dataIndex: 'categoryId',
+            key: 'categoryId',
         },
         {
             title: 'Action',
@@ -83,7 +86,7 @@ const ProductManagementPage = (props: any) => {
     ];
     return (
         <div>
-            <Table columns={columns} dataSource={data} pagination={{ defaultPageSize: 10 }} />
+            <Table columns={columns} dataSource={data} pagination={{ defaultPageSize: 6 }} />
         </div>
     )
 }

@@ -1,22 +1,41 @@
-import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom";
-import { Button, Checkbox, Col, Form, Input, Row, Select, Image } from 'antd';
-import { IBlog } from '../../../interfaces/blogs';
-interface IProps {
-    blogs: IBlog[];
-    onAddBlog: (blog: IBlog) => void
+import React, { useState, useEffect } from 'react'
+import { useNavigate, useParams } from "react-router-dom";
+import { Button, Col, Form, Input, Row, Image } from 'antd';
+import { IService } from '../../../interfaces/services';
+interface IUpdate {
+    services: IService[];
+    onUpdateSe: (service: IService) => void
 }
-const AddBlog = (props: IProps) => {
+const UpdateService = (props: IUpdate) => {
+    const { id } = useParams();
     const navigate = useNavigate();
-    const onFinish = (values: any) => {
-        props.onAddBlog(values);
-        navigate("/admin/blogs");
+    const [service, setService] = useState<IService>();
+
+    useEffect(() => {
+        const currentSe = props.services.find((service: IService) => service._id == id);
+        setService(currentSe);
+    }, [props]);
+    useEffect(() => {
+        setFields()
+    }, [service])
+    const [form] = Form.useForm();
+    const setFields = () => {
+        form.setFieldsValue({
+            id: service?._id,
+            title: service?.title,
+            description: service?.description,
+        })
+    }
+
+
+    const onFinish = (values: IService) => {
+        props.onUpdateSe(values);
+        navigate("/admin/services");
     }
 
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
     };
-
     return (
         <div>
             <Row>
@@ -26,6 +45,7 @@ const AddBlog = (props: IProps) => {
                 /></Col>
                 <Col span={12}>
                     <Form
+                        form={form}
                         layout="vertical"
                         name="basic"
                         labelCol={{ span: 8 }}
@@ -35,7 +55,15 @@ const AddBlog = (props: IProps) => {
                         autoComplete="off"
                     >
                         <Form.Item
-                            label="Blog Title"
+                            label=""
+                            name="id"
+                            style={{ display: 'none' }}
+                            rules={[{ required: true, message: 'Please input your username!' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            label="Service Title"
                             name="title"
                             hasFeedback
                             rules={[{ required: true, message: 'Tiêu đề không được để trống!' }]}
@@ -43,23 +71,7 @@ const AddBlog = (props: IProps) => {
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            label="Blog User"
-                            name="author"
-                            hasFeedback
-                            rules={[{ required: true, message: 'Tác giả không được để trống!' }]}
-                        >
-                            <Input />
-                        </Form.Item>
-                        <Form.Item
-                            label="Blog Image"
-                            name="image"
-                            hasFeedback
-                            rules={[{ required: true, message: 'Ảnh không được để trống!' }]}
-                        >
-                            <Input />
-                        </Form.Item>
-                        <Form.Item
-                            label="Blog Description"
+                            label="Service Description"
                             name="description"
                             hasFeedback
                             rules={[{ required: true, message: 'Mô tả không được để trống!' }]}
@@ -68,7 +80,7 @@ const AddBlog = (props: IProps) => {
                         </Form.Item>
                         <Form.Item >
                             <Button style={{ width: "100%", height: 35 }} type="primary" htmlType="submit">
-                                ADD BLOG
+                                ADD SERVICE
                             </Button>
                         </Form.Item>
                     </Form>
@@ -79,4 +91,4 @@ const AddBlog = (props: IProps) => {
     )
 }
 
-export default AddBlog
+export default UpdateService

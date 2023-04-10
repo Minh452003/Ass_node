@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { IResume } from '../interfaces/resumes';
+import { getAllRe } from '../api/resume';
 
 type Props = {}
 
 const Resume = (props: Props) => {
+    const [resumes, setResumes] = useState<IResume[]>([]);
+    useEffect(() => {
+        (async () => {
+            const { data } = await getAllRe();
+            setResumes(data);
+        })()
+    }, [])
     return (
         <div className="section" id="resume">
             <div className="container">
@@ -15,12 +24,14 @@ const Resume = (props: Props) => {
                                 <span className="line"></span>
                             </div>
                         </div>
+                        {resumes.map((resume) => {
+                            return <div className="card-body" key={resume._id}>
+                                <h6 className="title text-danger">{resume.timeline}</h6>
+                                <p>{resume.title}</p>
+                                <p className="subtitle">{resume.description}</p>
+                            </div>
+                        })}
 
-                        <div className="card-body">
-                            <h6 className="title text-danger"></h6>
-                            <p></p>
-                            <p className="subtitle"></p>
-                        </div>
                     </div>
                 </div>
 

@@ -11,6 +11,7 @@ import {
     LoginOutlined,
     AntDesignOutlined
 } from '@ant-design/icons'; type Props = {}
+
 const { Header, Content, Footer } = Layout;
 const onSearch = (value: string) => console.log(value);
 const { Search } = Input;
@@ -40,6 +41,7 @@ const items: MenuItem[] = [
     getItem('Signup ', '6', <AntDesignOutlined />, '/signup'),
 ];
 const RootLayout = (props: Props) => {
+
     const {
         token: { colorBgContainer },
     } = theme.useToken();
