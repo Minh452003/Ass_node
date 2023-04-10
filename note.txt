@@ -1,0 +1,8 @@
+Những chức năng đã làm được:
+1.Thêm,sửa,xoá products,categories,blogs,resumes,services
+2.Chi tiết sản phẩm
+3.Khi click vào danh mục sẽ list ra sản phẩm thuộc danh mục đó
+4.Đăng nhập,đăng xuất,check quyền khi không phải admin thì không được vào trang quản trị
+5.Validate thông qua antd,password !=confirmPassword sẽ thông báo không khớp
+6.Trang thêm sản phẩm có thể push ảnh lên cloudinary nhưng k dùng antd
+7.có dùng interface
