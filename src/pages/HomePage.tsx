@@ -12,8 +12,13 @@ import Contact from '../component/Contact';
 import { IProduct } from '../interfaces/products';
 import { ICategory } from '../interfaces/categories';
 
-const HomePage = (props: any) => {
-
+interface IProps {
+    products: IProduct[],
+    categories: ICategory[]
+}
+const HomePage = (props: IProps) => {
+    const [search, setSearch] = useState('');
+    const [searchProduct, setSearchProduct] = useState('');
     return (
         <div>
             <Infomation />
@@ -35,7 +40,7 @@ const HomePage = (props: any) => {
                                 <div className="card bg-light mb-3">
                                     <form className="pb-3" action="" method="post">
                                         <div className="input-group">
-                                            <input type="text" className='form-control' placeholder="Tìm kiếm sản phẩm..." />
+                                            <input type="text" className='form-control' placeholder="Tìm kiếm sản phẩm..." onChange={(e) => { setSearch(e.target.value) }} />
                                             <div className="input-group-append">
                                                 <input type="submit" className='btn btn-success' value="Tìm kiếm" />
                                             </div>
@@ -44,19 +49,32 @@ const HomePage = (props: any) => {
                                     <div className="card-header bg-secondary text-white text-uppercase"><i className="fa fa-list"></i> Danh mục
                                     </div>
                                     <ul className="list-group category_block">
-                                        {props.categories.map((category: ICategory) => {
+                                        {props.categories.filter((category: ICategory) => {
+                                            if (search == "") {
+                                                return category
+                                            } else if (category.name.toLowerCase().includes(search.toLowerCase())) {
+                                                return category
+                                            }
+                                        }).map((category: ICategory) => {
                                             return <li className="list-group-item" key={category._id}><Link style={{ textDecoration: 'none' }} to={`/categories/${category._id}`}>{category.name}</Link></li>
                                         })}
 
                                     </ul>
                                 </div>
+                                <input type="text" className='form-control' placeholder="Tìm kiếm sản phẩm..." onChange={(e) => { setSearchProduct(e.target.value) }} />
                             </div>
                             <div className="col">
                                 <div style={{ height: 50 }} className="card-header bg-success text-white text-uppercase text-center">
-                                    <PlusSquareOutlined /> <p style={{ marginTop: 1 }}>Sản phẩm mới nhất</p>
+                                    <PlusSquareOutlined /> <p style={{ marginTop: 1 }}>Tất cả sản phẩm</p>
                                 </div>
                                 <div className="row">
-                                    {props.products.map((product: IProduct) => {
+                                    {props.products.filter((product: IProduct) => {
+                                        if (searchProduct == "") {
+                                            return product
+                                        } else if (product.duan.toLowerCase().includes(searchProduct.toLowerCase())) {
+                                            return product
+                                        }
+                                    }).map((product: IProduct) => {
                                         return <div className="col-12 col-md-6 col-lg-3 mt-2" key={product._id}>
                                             <div className="card">
                                                 <Image
