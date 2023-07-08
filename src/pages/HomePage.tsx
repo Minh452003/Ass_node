@@ -66,7 +66,7 @@ const HomePage = (props: IProps) => {
                                     <div className="card">
                                         <Image
                                             width={'100%'} height={'130px'}
-                                            src="https://res.cloudinary.com/dkvghcobl/image/upload/v1688822037/czk12dhbckkwod5catbg.png"
+                                            src="https://res.cloudinary.com/dkvghcobl/image/upload/v1688825181/onrfhizwtvxwqtjvlzld.png"
                                         />
                                         <div className="card-body">
                                             <h5 className="card-title" style={{ textAlign: 'center' }}>BookShelf Online</h5>
@@ -88,7 +88,7 @@ const HomePage = (props: IProps) => {
                                     <div className="card">
                                         <Image
                                             width={'100%'} height={'130px'}
-                                            src="https://res.cloudinary.com/dkvghcobl/image/upload/v1688822297/amq9itkjgkijds3cndmr.png"
+                                            src="https://res.cloudinary.com/dkvghcobl/image/upload/v1688825232/lxhuaxzwcizucckpzbv2.png"
                                         />
                                         <div className="card-body">
                                             <h5 className="card-title" style={{ textAlign: 'center' }}>Portfolio</h5>
