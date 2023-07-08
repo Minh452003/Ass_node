@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import { ICategory } from '../../interfaces/categories';
 import { getAllCategory } from '../../api/category';
 import PrivateRoute from '../../PrivateRouter';
+import { LuEdit2 } from 'react-icons/lu'
+import { AiOutlineDelete } from 'react-icons/ai'
+
 const ProductManagementPage = (props: any) => {
     const [categories, setCategories] = useState<ICategory[]>([]);
     PrivateRoute();
@@ -80,8 +83,8 @@ const ProductManagementPage = (props: any) => {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <Button type="primary"><Link to={`/admin/products/${record.key}/update`}> Update</Link></Button>
-                    <Button type="dashed" onClick={() => removeProduct(record.key)}>Remove</Button>
+                    <Button type="primary"><Link to={`/admin/products/${record.key}/update`}> <LuEdit2 style={{ width: '100%' }} /></Link></Button>
+                    <Button type="primary" danger onClick={() => removeProduct(record.key)}><AiOutlineDelete /></Button>
                 </Space>
             ),
         },

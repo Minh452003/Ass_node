@@ -1,0 +1,23 @@
+import express from "express";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import cors from "cors";
+import router from "./routes/products";
+import routerUser from "./routes/users";
+import routerCategory from "./routes/categories";
+import routerBlog from "./routes/blogs";
+import routerResume from "./routes/resumes";
+import routerService from "./routes/services";
+const app = express();
+dotenv.config();
+app.use(express.json());
+app.use(cors());
+app.use("/api", router);
+app.use("/api", routerUser);
+app.use("/api", routerCategory);
+app.use("/api", routerBlog);
+app.use("/api", routerResume);
+app.use("/api", routerService);
+mongoose.connect("mongodb://127.0.0.1:27017/Ass_node");
+
+export const viteNodeApp = app;

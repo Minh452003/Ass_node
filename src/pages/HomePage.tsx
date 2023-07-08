@@ -1,24 +1,21 @@
 import React, { useState } from 'react';
-import { Carousel, Col, Row, Divider, List, Typography, Card } from 'antd';
 import { Link } from 'react-router-dom';
-import { PlusSquareOutlined } from '@ant-design/icons';
 import Infomation from '../component/Infomation';
 import Resume from '../component/Resume';
 import HouseWoker from '../component/HouseWoker';
 import Service from '../component/Service';
 import { Image } from 'antd';
-import Blog from '../component/Blog';
 import Contact from '../component/Contact';
 import { IProduct } from '../interfaces/products';
 import { ICategory } from '../interfaces/categories';
+import { AiOutlineLink } from 'react-icons/ai'
+import { LiaExternalLinkAltSolid } from 'react-icons/lia'
 
 interface IProps {
     products: IProduct[],
     categories: ICategory[]
 }
 const HomePage = (props: IProps) => {
-    const [search, setSearch] = useState('');
-    const [searchProduct, setSearchProduct] = useState('');
     return (
         <div>
             <Infomation />
@@ -31,80 +28,47 @@ const HomePage = (props: IProps) => {
                     <button className="btn bg-primary w-lg" >Hire me</button>
                 </div>
             </section>
-            <div className="container-fluid tm-container-content tm-mt-60" id="projects">
+            <br />
+            <br />
+            <section className="container" id="projects">
                 <div className="row mb-4">
                     <h2 className="mb-5 pb-4"><span className="text-danger">MY</span> PROJECTS</h2>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12 col-sm-3">
-                                <div className="card bg-light mb-3">
-                                    <form className="pb-3" action="" method="post">
-                                        <div className="input-group">
-                                            <input type="text" className='form-control' placeholder="Tìm kiếm sản phẩm..." onChange={(e) => { setSearch(e.target.value) }} />
-                                            <div className="input-group-append">
-                                                <input type="submit" className='btn btn-success' value="Tìm kiếm" />
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <div className="card-header bg-secondary text-white text-uppercase"><i className="fa fa-list"></i> Danh mục
-                                    </div>
-                                    <ul className="list-group category_block">
-                                        {props.categories.filter((category: ICategory) => {
-                                            if (search == "") {
-                                                return category
-                                            } else if (category.name.toLowerCase().includes(search.toLowerCase())) {
-                                                return category
-                                            }
-                                        }).map((category: ICategory) => {
-                                            return <li className="list-group-item" key={category._id}><Link style={{ textDecoration: 'none' }} to={`/categories/${category._id}`}>{category.name}</Link></li>
-                                        })}
-
-                                    </ul>
-                                </div>
-                                <input type="text" className='form-control' placeholder="Tìm kiếm sản phẩm..." onChange={(e) => { setSearchProduct(e.target.value) }} />
-                            </div>
-                            <div className="col">
-                                <div style={{ height: 50 }} className="card-header bg-success text-white text-uppercase text-center">
-                                    <PlusSquareOutlined /> <p style={{ marginTop: 1 }}>Tất cả sản phẩm</p>
-                                </div>
-                                <div className="row">
-                                    {props.products.filter((product: IProduct) => {
-                                        if (searchProduct == "") {
-                                            return product
-                                        } else if (product.duan.toLowerCase().includes(searchProduct.toLowerCase())) {
-                                            return product
-                                        }
-                                    }).map((product: IProduct) => {
-                                        return <div className="col-12 col-md-6 col-lg-3 mt-2" key={product._id}>
-                                            <div className="card">
-                                                <Image
-                                                    width={'100%'}
-                                                    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                                                />
-                                                <div className="card-body">
-                                                    <h5 className="card-title" style={{ textAlign: 'center' }}><Link style={{ textDecoration: 'none' }} to={`/products/${product._id}`}>{product.duan}</Link>
-                                                    </h5>
-                                                    <div className="row">
-                                                        <div className="col" style={{ textAlign: 'center' }}>
-                                                            <p style={{ fontSize: 18 }} className="btn ">{product.name}</p>
-                                                        </div>
+                    <div className="row">
+                        <div className="col">
+                            <div className="row">
+                                {props.products.map((product: IProduct) => {
+                                    return <div className="col-12 col-md-6 col-lg-3 mt-1" key={product._id}>
+                                        <div className="card">
+                                            <Image
+                                                width={'100%'}
+                                                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                                            />
+                                            <div className="card-body">
+                                                <h5 className="card-title" style={{ textAlign: 'center' }}><Link style={{ textDecoration: 'none' }} to={`/products/${product._id}`}>{product.duan}</Link>
+                                                </h5>
+                                                <div className="row">
+                                                    <div className="col" style={{ textAlign: 'center' }}>
+                                                        <p style={{ fontSize: 18 }} className="btn ">{product.description}</p>
                                                     </div>
-                                                    <Link className='btn btn-primary btn-block' to={`/products/${product._id}`}>XEM CHI TIẾT</Link>
                                                 </div>
+                                                <div style={{ textAlign: 'center' }}>
+                                                    <Link to={product.linkgit}><AiOutlineLink style={{ fontSize: '30px' }} /></Link>
+                                                    <Link to={product.linkprv}><LiaExternalLinkAltSolid style={{ fontSize: '30px', marginLeft: '30px' }} /></Link>
+                                                </div>
+
                                             </div>
                                         </div>
-                                    })}
+                                    </div>
+                                })}
 
-                                </div>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
                 <div className="row tm-mb-90 tm-gallery">
                 </div>
-            </div>
-            <Blog />
+            </section>
             <Contact />
 
         </div>

@@ -2,6 +2,8 @@ import React from 'react';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { Outlet, Link } from 'react-router-dom';
 import { Input, Space, MenuProps } from 'antd';
+import $ from 'jquery';
+
 import {
     HddOutlined,
     FileOutlined,
@@ -45,6 +47,7 @@ const RootLayout = (props: Props) => {
     const {
         token: { colorBgContainer },
     } = theme.useToken();
+
     return (
         <div>
             <header className="header">
@@ -71,13 +74,13 @@ const RootLayout = (props: Props) => {
                     <div className="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                <a href="#home" className="nav-link">Home</a>
+                                <a href="#home" className="nav-link">Trang Chủ</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#about" className="nav-link">About</a>
+                                <a href="#about" className="nav-link">Thông Tin</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#resume" className="nav-link">Resume</a>
+                                <a href="#resume" className="nav-link">Hồ Sơ</a>
                             </li>
                         </ul>
                         <ul className="navbar-nav brand">
@@ -89,13 +92,13 @@ const RootLayout = (props: Props) => {
                         </ul>
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <a href="#projects" className="nav-link">Project</a>
+                                <a href="#projects" className="nav-link">Dự Án</a>
                             </li>
                             <li className="nav-item last-item">
-                                <a href="#blog" className="nav-link">Blog</a>
+                                <a href="#blog" className="nav-link">Bài Viết</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#contact" className="nav-link">Contact</a>
+                                <a href="#contact" className="nav-link">Liên Hệ</a>
                             </li>
                         </ul>
                     </div>

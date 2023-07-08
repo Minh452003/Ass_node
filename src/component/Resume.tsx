@@ -20,7 +20,7 @@ const Resume = (props: Props) => {
                     <div className="card">
                         <div className="card-header">
                             <div className="mt-2">
-                                <h4>Expertise & Education</h4>
+                                <h4>Education</h4>
                                 <span className="line"></span>
                             </div>
                         </div>
