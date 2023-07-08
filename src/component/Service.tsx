@@ -16,7 +16,7 @@ const Service = (props: Props) => {
         <div>
             <section className="section" id="service">
                 <div className="container">
-                    <h2 className="mb-5 pb-4"><span className="text-danger">MY</span> SERVICE</h2>
+                    <h2 className="mb-5 pb-4"><span className="text-danger">DỊCH VỤ</span> CỦA TÔI</h2>
                     <div className="row">
                         {services.map((service) => {
                             return <div className="col-md-4 col-sm-6" key={service._id}>

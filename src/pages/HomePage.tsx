@@ -24,15 +24,16 @@ const HomePage = (props: IProps) => {
             <Service />
             <section className="section bg-dark py-5">
                 <div className="container text-center">
-                    <h2 className="text-light mb-5 font-weight-normal">I Am Available For FreeLance</h2>
-                    <button className="btn bg-primary w-lg" >Hire me</button>
+                    <h2 className="text-light mb-5 font-weight-normal">Tôi sẵn sàng làm FreeLance
+                    </h2>
+                    <button className="btn bg-primary w-lg" >Thuê tôi</button>
                 </div>
             </section>
             <br />
             <br />
             <section className="container" id="projects">
                 <div className="row mb-4">
-                    <h2 className="mb-5 pb-4"><span className="text-danger">MY</span> PROJECTS</h2>
+                    <h2 className="mb-5 pb-4"><span className="text-danger">DỰ ÁN</span> CỦA TÔI</h2>
                     <div className="row">
                         <div className="col">
                             <div className="row">

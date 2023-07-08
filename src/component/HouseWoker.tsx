@@ -15,7 +15,7 @@ const HouseWoker = (props: Props) => {
                                 </div>
                                 <div className="col-7 text-left py-3">
                                     <h1 className="text-danger font-weight-bold font40">100</h1>
-                                    <p className="text-light mb-1">Hours Worked</p>
+                                    <p className="text-light mb-1">Số giờ làm việc</p>
                                 </div>
                             </div>
                         </div>
@@ -26,7 +26,7 @@ const HouseWoker = (props: Props) => {
                                 </div>
                                 <div className="col-7 text-left py-3">
                                     <h1 className="text-danger font-weight-bold font40">4</h1>
-                                    <p className="text-light mb-1">Project Finished</p>
+                                    <p className="text-light mb-1">Dự án kết thúc</p>
                                 </div>
                             </div>
                         </div>
@@ -36,8 +36,8 @@ const HouseWoker = (props: Props) => {
                                     <div className="m-auto"><i className="ti-face-smile icon-xl"></i></div>
                                 </div>
                                 <div className="col-7 text-left py-3">
-                                    <h1 className="text-danger font-weight-bold font40">40</h1>
-                                    <p className="text-light mb-1">Happy Clients</p>
+                                    <h1 className="text-danger font-weight-bold font40">2</h1>
+                                    <p className="text-light mb-1">Khách hàng hạnh phúc</p>
                                 </div>
                             </div>
                         </div>
@@ -47,8 +47,8 @@ const HouseWoker = (props: Props) => {
                                     <div className="m-auto"><i className="ti-heart-broken icon-xl"></i></div>
                                 </div>
                                 <div className="col-7 text-left py-3">
-                                    <h1 className="text-danger font-weight-bold font40">20</h1>
-                                    <p className="text-light mb-1">Coffee Drinked</p>
+                                    <h1 className="text-danger font-weight-bold font40">5</h1>
+                                    <p className="text-light mb-1">Lần uống cà phê</p>
                                 </div>
                             </div>
                         </div>
