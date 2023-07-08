@@ -37,7 +37,7 @@ const HomePage = (props: IProps) => {
                     <div className="row">
                         <div className="col">
                             <div className="row">
-                                {props.products.map((product: IProduct) => {
+                                {/* {props.products.map((product: IProduct) => {
                                     return <div className="col-12 col-md-6 col-lg-3 mt-1" key={product._id}>
                                         <div className="card">
                                             <Image
@@ -60,8 +60,73 @@ const HomePage = (props: IProps) => {
                                             </div>
                                         </div>
                                     </div>
-                                })}
+                                })} */}
 
+                                <div className="col-12 col-md-6 col-lg-3 mt-1">
+                                    <div className="card">
+                                        <Image
+                                            width={'100%'} height={'130px'}
+                                            src="https://res.cloudinary.com/dkvghcobl/image/upload/v1688822037/czk12dhbckkwod5catbg.png"
+                                        />
+                                        <div className="card-body">
+                                            <h5 className="card-title" style={{ textAlign: 'center' }}>BookShelf Online</h5>
+                                            <div className="row">
+                                                <div className="col" style={{ textAlign: 'center', height: '200px' }}>
+                                                    <p style={{ fontSize: 18 }} className="btn ">Dự án của nhóm 6 lớp WD17303. Dự án gồm 4 thành viên, thiết kế 1 website bán sách trực tuyến. Sử dụng ngôn ngữ Angular,NodeJs và được quản lý bằng phần mềm Jira</p>
+                                                </div>
+                                            </div>
+                                            <div style={{ textAlign: 'center' }}>
+                                                <Link to={'https://github.com/DU-AN-THUC-HIEN/Angular_WD17303'}><AiOutlineLink style={{ fontSize: '30px' }} /></Link>
+                                                <Link to={''}><LiaExternalLinkAltSolid style={{ fontSize: '30px', marginLeft: '30px' }} /></Link>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {/*  */}
+                                <div className="col-12 col-md-6 col-lg-3 mt-1">
+                                    <div className="card">
+                                        <Image
+                                            width={'100%'} height={'130px'}
+                                            src="https://res.cloudinary.com/dkvghcobl/image/upload/v1688822297/amq9itkjgkijds3cndmr.png"
+                                        />
+                                        <div className="card-body">
+                                            <h5 className="card-title" style={{ textAlign: 'center' }}>Portfolio</h5>
+                                            <div className="row">
+                                                <div className="col" style={{ textAlign: 'center', height: '200px' }}>
+                                                    <p style={{ fontSize: 18 }} className="btn ">Dự án cá nhân.Sử dụng ngôn ngữ React,NodeJs,TypeScript. Sử dụng Ant Design và Boostrap để thiết kế giao diện</p>
+                                                </div>
+                                            </div>
+                                            <div style={{ textAlign: 'center' }}>
+                                                <Link to={'https://github.com/Minh452003/Ass_node'}><AiOutlineLink style={{ fontSize: '30px' }} /></Link>
+                                                <Link to={''}><LiaExternalLinkAltSolid style={{ fontSize: '30px', marginLeft: '30px' }} /></Link>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {/*  */}
+                                <div className="col-12 col-md-6 col-lg-3 mt-1" >
+                                    <div className="card">
+                                        <Image
+                                            width={'100%'} height={'130px'}
+                                            src="https://res.cloudinary.com/dkvghcobl/image/upload/v1688822643/pwjhz3ko9dtk4tftoewc.png"
+                                        />
+                                        <div className="card-body">
+                                            <h5 className="card-title" style={{ textAlign: 'center' }}>ShelfPhone</h5>
+                                            <div className="row">
+                                                <div className="col" style={{ textAlign: 'center', height: '200px' }}>
+                                                    <p style={{ fontSize: 18 }} className="btn ">Dự án cá nhân.Sử dụng ngôn ngữ React,NodeJs,TypeScript. Sử dụng Ant Design và Boostrap để thiết kế giao diện</p>
+                                                </div>
+                                            </div>
+                                            <div style={{ textAlign: 'center' }}>
+                                                <Link to={'https://github.com/Minh452003/Ass_Type'}><AiOutlineLink style={{ fontSize: '30px' }} /></Link>
+                                                <Link to={''}><LiaExternalLinkAltSolid style={{ fontSize: '30px', marginLeft: '30px' }} /></Link>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

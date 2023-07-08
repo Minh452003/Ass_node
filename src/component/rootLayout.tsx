@@ -62,7 +62,7 @@ const RootLayout = (props: Props) => {
                     <div className="header-content">
                         <h4 className="header-subtitle" >Xin Chào, Tôi Là</h4>
                         <h1 className="header-title">Minh</h1>
-                        <h6 className="header-mono" >Frond end Designer | Developer</h6>
+                        <h6 className="header-mono" >FrontEnd student</h6>
                     </div>
                 </div>
             </header>

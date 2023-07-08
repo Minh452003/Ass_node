@@ -24,14 +24,20 @@ const Resume = (props: Props) => {
                                 <span className="line"></span>
                             </div>
                         </div>
-                        {resumes.map((resume) => {
+                        {/* {resumes.map((resume) => {
                             return <div className="card-body" key={resume._id}>
                                 <h6 className="title text-danger">{resume.timeline}</h6>
                                 <p>{resume.title}</p>
                                 <p className="subtitle">{resume.description}</p>
                             </div>
-                        })}
-
+                        })} */}
+                        <div className="card-body">
+                            <h6 className="title text-danger">8/2021 - 1/2024</h6>
+                            <p>Cao Đẳng FPT Polytechnic</p>
+                            <p className="subtitle">Sau gần 2 năm học.Điểm trung bình 8.3/10 sau khi học 87/97 tín chỉ</p>
+                            <p className="subtitle">2023 Sinh viên giỏi </p>
+                            <p className="subtitle">2022 Sinh viên xuất sắc</p>
+                        </div>
                     </div>
                 </div>
 
