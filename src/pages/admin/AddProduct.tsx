@@ -17,10 +17,6 @@ const AddProduct = (props: any) => {
     const FOLDER_NAME = "ECMA";
     const [image, setImage] = useState<String>('');
     const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
-    const imgPost = document.getElementById('image');
-    imgPost?.addEventListener('change', (e) => {
-        setImage(URL.createObjectURL(e.target?.files[0]))
-    });
 
     const onHandleSubmit = async (data: any) => {
         const file = data.image[0];
@@ -82,7 +78,7 @@ const AddProduct = (props: any) => {
                             {errors.description && <span style={{ color: 'red' }}>Bắt buộc phải nhập trường này</span>}
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Description</label>
+                            <label className="form-label">Category</label>
                             <select className="form-select" {...register('categoryId', { required: true })}>
                                 <option selected disabled>Chọn danh mục</option>
                                 {props.categories.map((category: any) => {

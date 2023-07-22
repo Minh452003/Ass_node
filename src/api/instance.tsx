@@ -1,6 +1,6 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: "http://localhost:8082/api"
+    baseURL: "https://node-porfolio.onrender.com/api"
 })
 export default instance
