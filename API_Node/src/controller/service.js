@@ -1,5 +1,5 @@
 import Joi from "joi";
-import Service from "../model/service";
+import Service from "../model/service.js";
 const ServiceSchema = Joi.object({
     id: Joi.string(),
     title: Joi.string().required(),

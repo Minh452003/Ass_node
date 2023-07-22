@@ -1,8 +1,7 @@
 import cloudinary from "../config/cloudinary";
-import { Request, Response } from "express";
 
-export const uploadImage = async (req: Request, res: Response) => {
-    const files = req.files as Express.Multer.File[];
+export const uploadImage = async (req, res) => {
+    const files = req.files
     if (!Array.isArray(files)) {
         return res.status(400).json({ error: 'No files were uploaded' });
     }
@@ -25,7 +24,7 @@ export const uploadImage = async (req: Request, res: Response) => {
         return res.status(500).json({ error: error.message });
     }
 }
-export const deleteImage = async (req: Request, res: Response) => {
+export const deleteImage = async (req, res) => {
     const publicId = req.params.publicId;
     try {
         const result = await cloudinary.uploader.destroy(publicId);
@@ -34,8 +33,8 @@ export const deleteImage = async (req: Request, res: Response) => {
         res.status(500).json({ error: error.message || "Error deleting image" });
     }
 };
-export const updateImage = async (req: Request, res: Response) => {
-    const files = req.files as Express.Multer.File[];
+export const updateImage = async (req, res) => {
+    const files = req.files
     if (!Array.isArray(files)) {
         return res.status(400).json({ error: 'No files were uploaded' });
     }

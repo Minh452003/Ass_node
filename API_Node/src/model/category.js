@@ -1,12 +1,6 @@
-import mongoose, { UpdateQuery, model } from "mongoose";
+import mongoose from "mongoose";
 
 
-interface ICategory {
-    name: string;
-    products: mongoose.Types.ObjectId[];
-    deletedAt?: Date | null;
-    deleted?: boolean;
-}
 const categorySchema = new mongoose.Schema({
     name: {
         type: String,

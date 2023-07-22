@@ -1,5 +1,5 @@
 import Joi from "joi";
-import Blog from "../model/blog";
+import Blog from "../model/blog.js";
 const BlogsSchema = Joi.object({
     id: Joi.string(),
     title: Joi.string().required(),

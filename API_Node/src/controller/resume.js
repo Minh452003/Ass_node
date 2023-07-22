@@ -1,5 +1,5 @@
 import Joi from "joi";
-import Resume from "../model/resume"
+import Resume from "../model/resume.js"
 const ResumesSchema = Joi.object({
     id: Joi.string(),
     title: Joi.string().required(),

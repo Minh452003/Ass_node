@@ -5,11 +5,12 @@
   "main": "app.js",
   "type": "module",
   "engines": {
-    "node": "14.x"
+    "node": "18.x"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "start": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
